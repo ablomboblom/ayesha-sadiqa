@@ -85,6 +85,15 @@ collections:
               - {label: "Homepage excerpt", name: "excerpt", widget: "text"}
               - {label: "Full writing", name: "body", widget: "markdown", required: false}
               - {label: "Optional PDF", name: "pdf", widget: "file", required: false}
+          - label: "Approved Q&A and Visitor Notes"
+            name: "approved_qna"
+            widget: "list"
+            summary: "{{fields.question}}"
+            fields:
+              - {label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false}
+              - {label: "Question / note", name: "question", widget: "text"}
+              - {label: "Your response", name: "answer", widget: "text"}
+              - {label: "Name shown publicly", name: "name", widget: "string", default: "anonymous"}
           - label: "Approved Thought Jar Notes"
             name: "approved_jar"
             widget: "list"
