@@ -1,0 +1,87 @@
+backend:
+  name: github
+  repo: ablomboblom/ayesha-sadiqa
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+site_url: https://ayeshasadiqa.netlify.app
+display_url: https://ayeshasadiqa.netlify.app
+logo_url: ""
+
+collections:
+  - name: "site"
+    label: "Ayesha's Daily Updates"
+    files:
+      - name: "content"
+        label: "Everything I Update"
+        file: "content/content.json"
+        format: "json"
+        fields:
+          - label: "Currently Reading"
+            name: "reading"
+            widget: "object"
+            fields:
+              - {label: "Book title", name: "title", widget: "string"}
+              - {label: "Author", name: "author", widget: "string"}
+              - {label: "Homepage note", name: "note", widget: "text"}
+              - {label: "Reading journal intro", name: "journal_intro", widget: "text"}
+          - label: "What I Learned"
+            name: "lessons"
+            widget: "list"
+            summary: "{{fields.date}} — {{fields.title}}"
+            fields:
+              - {label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Longer thought", name: "body", widget: "text"}
+          - label: "Today's Thoughts"
+            name: "thoughts"
+            widget: "list"
+            summary: "{{fields.date}} — {{fields.title}}"
+            fields:
+              - {label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false}
+              - {label: "Thought", name: "title", widget: "string"}
+              - {label: "Optional extra line", name: "body", widget: "text", required: false}
+          - label: "Small, Wise Wins"
+            name: "wins"
+            widget: "list"
+            summary: "{{fields.date}} — {{fields.title}}"
+            fields:
+              - {label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false}
+              - {label: "Main win", name: "title", widget: "string"}
+              - {label: "Note", name: "body", widget: "text", required: false}
+              - label: "Tiny win chips"
+                name: "tags"
+                widget: "list"
+                field: {label: "Tiny win", name: "tag", widget: "string"}
+          - label: "Writing Prompts"
+            name: "prompts"
+            widget: "list"
+            summary: "{{fields.date}} — {{fields.title}}"
+            fields:
+              - {label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false}
+              - {label: "Prompt", name: "title", widget: "string"}
+              - label: "Prompt notes"
+                name: "lines"
+                widget: "list"
+                field: {label: "Line", name: "line", widget: "string"}
+          - label: "Stories"
+            name: "stories"
+            widget: "list"
+            summary: "{{fields.date}} — {{fields.title}}"
+            fields:
+              - {label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false}
+              - {label: "Type", name: "type", widget: "select", options: ["personal essay","reflection","advocacy","story","note"]}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Homepage excerpt", name: "excerpt", widget: "text"}
+              - {label: "Full writing", name: "body", widget: "markdown", required: false}
+              - {label: "Optional PDF", name: "pdf", widget: "file", required: false}
+          - label: "Approved Thought Jar Notes"
+            name: "approved_jar"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.text}}"
+            fields:
+              - {label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false}
+              - {label: "Name", name: "name", widget: "string", default: "anonymous"}
+              - {label: "Note", name: "text", widget: "text"}
