@@ -21,8 +21,8 @@ function renderCalendar(items){
   const hits=new Set(dated.filter(x=>x.startsWith(year+'-'+String(month+1).padStart(2,'0'))).map(x=>Number(x.slice(8,10))));
   let cells=['M','T','W','T','F','S','S'].map(x=>'<span class="muted">'+x+'</span>');
   for(let i=0;i<first;i++)cells.push('<span></span>');
-  for(let day=1;day<=days;day++)cells.push('<span class="'+(hits.has(day)?'has':'')+'">'+day+'</span>');
-  cal.innerHTML='<div class="calhead"><strong>'+monthName+' '+year+'</strong><span>✦</span></div><div class="calgrid">'+cells.join('')+'</div><p class="legend">✦ dates with something tucked inside them</p>';
+  for(let day=1;day<=days;day++){const hit=hits.has(day);cells.push(hit?'<button class="has" type="button" data-day="'+day+'" aria-label="Show entries from '+monthName+' '+day+'">'+day+'</button>':'<span>'+day+'</span>')}
+  cal.innerHTML='<div class="calhead"><strong>'+monthName+' '+year+'</strong><span>✦</span></div><div class="calgrid">'+cells.join('')+'</div><p class="legend">✦ tap a marked date to jump to it</p>'; cal.querySelectorAll('[data-day]').forEach(btn=>btn.addEventListener('click',()=>{const target=String(year)+'-'+String(month+1).padStart(2,'0')+'-'+String(btn.dataset.day).padStart(2,'0');const entries=[...document.querySelectorAll('.entry')];const match=entries.find(el=>el.querySelector('.date')?.textContent.startsWith(target));if(match){match.scrollIntoView({behavior:'smooth',block:'start'});match.setAttribute('tabindex','-1');match.focus({preventScroll:true})}}));
 }
 (async function(){
   try{
