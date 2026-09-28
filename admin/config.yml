@@ -27,6 +27,14 @@ collections:
               - {label: "Author", name: "author", widget: "string"}
               - {label: "Homepage note", name: "note", widget: "text"}
               - {label: "Reading journal intro", name: "journal_intro", widget: "text"}
+              - label: "Reading notes"
+                name: "notes"
+                widget: "list"
+                summary: "{{fields.date}} — {{fields.title}}"
+                fields:
+                  - {label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false}
+                  - {label: "Note title", name: "title", widget: "string"}
+                  - {label: "Your thoughts", name: "body", widget: "text"}
           - label: "What I Learned"
             name: "lessons"
             widget: "list"
