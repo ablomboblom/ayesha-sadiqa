@@ -1,13 +1,13 @@
 backend:
-  name: github
-  repo: ablomboblom/ayesha-sadiqa
+  name: turbo-github
+  turbo_site_id: b07b3313-4b69-4ccb-9458-07e3dcd24009
   branch: main
 
 media_folder: "uploads"
 public_folder: "/uploads"
 
-site_url: https://writing-for-the-win.netlify.app
-display_url: https://writing-for-the-win.netlify.app
+site_url: https://a-little-elsewhere.aaishaakhaan12.workers.dev
+display_url: https://a-little-elsewhere.aaishaakhaan12.workers.dev
 logo_url: ""
 
 collections:
