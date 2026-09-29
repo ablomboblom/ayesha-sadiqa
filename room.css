@@ -37,3 +37,8 @@
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
 }
+
+/* persistent site navigation */
+.top{position:sticky;top:0;z-index:80;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px max(20px,5vw);background:rgba(255,250,241,.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(48,38,45,.1)}
+.toplinks{display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:flex-end}.toplinks a{font-size:12px;padding:8px 10px;border-radius:999px}.toplinks a:hover,.toplinks a:focus-visible{background:#fff}.toplinks .home-link{background:#30262d;color:#fff}
+@media(max-width:820px){.top{position:sticky;padding:10px 14px}.top .brand{font-size:16px;white-space:nowrap}.toplinks{overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start;scrollbar-width:none}.toplinks::-webkit-scrollbar{display:none}.toplinks a{white-space:nowrap;font-size:11px}.toplinks a:not(.home-link):nth-child(n+4){display:none}}
